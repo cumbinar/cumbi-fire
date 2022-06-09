@@ -1,12 +1,14 @@
 import pygame
 import sys
+from nave import Nave
 
 class CumbiFire:
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((800, 500))
         pygame.display.set_caption("Cumbi Fire")
-        self.color = (242,242,242)
+        self.color = (255,200,0)
+        self.nave = Nave(self)
 
     def corre_juego(self):
         while True:
@@ -14,6 +16,7 @@ class CumbiFire:
                 if event.type == pygame.QUIT:
                     sys.exit()
             self.screen.fill(self.color)
+            self.nave.corre()
             pygame.display.flip()  
 
 
