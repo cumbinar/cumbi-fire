@@ -15,6 +15,19 @@ class CumbiFire:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RIGHT:
+                        self.nave.mover_derecha = True
+                    if event.key == pygame.K_LEFT: 
+                        self.nave.mover_izquierda = True  
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_RIGHT:
+                        self.nave.mover_derecha = False
+                    if event.key == pygame.K_LEFT:
+                        self.nave.mover_izquierda = False
+
+            self.nave.mover()            
+
             self.screen.fill(self.color)
             self.nave.corre()
             pygame.display.flip()  
