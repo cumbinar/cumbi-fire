@@ -41,8 +41,14 @@ class CumbiFire:
             self.screen.fill(self.color)
             self.nave.corre()
             self.bullets.update()
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet) 
+                    #print(len(self.bullets))
+
             for bullet in self.bullets.sprites():
                 bullet.draw_bullet()
+                
 
             pygame.display.flip() 
 
