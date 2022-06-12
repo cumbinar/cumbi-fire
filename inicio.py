@@ -13,7 +13,7 @@ class CumbiFire:
         self.color = (255,200,0)
         self.velocidad = 0.5
         self.anchobala = 6
-        self.altobala = 15
+        self.altobala = 16
         self.colorbala =(225,0,0)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
