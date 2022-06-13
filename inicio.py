@@ -17,6 +17,7 @@ class CumbiFire:
         self.colorbala =(225,0,0)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
+        self.balas_totales = 3
 
     def corre_juego(self):
         while True:
@@ -53,8 +54,10 @@ class CumbiFire:
             pygame.display.flip() 
 
     def _fire_bullet(self):
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)        
+        if self.balas_totales != 0:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)     
+            self.balas_totales = self.balas_totales - 1   
 
 
 if __name__ == "__main__":
