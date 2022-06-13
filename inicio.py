@@ -53,11 +53,20 @@ class CumbiFire:
 
             pygame.display.flip() 
 
+    
     def _fire_bullet(self):
+        
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)     
+            
+    
+    '''def _fire_bullet(self): # se limita el numero de balas
         if self.balas_totales != 0:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)     
-            self.balas_totales = self.balas_totales - 1   
+            self.balas_totales = self.balas_totales - 1'''   
+
+
 
 
 if __name__ == "__main__":
