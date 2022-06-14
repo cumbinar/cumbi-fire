@@ -2,6 +2,7 @@ import pygame
 import sys
 from nave import Nave
 from bala import Bullet
+from alien import Alien
 
 class CumbiFire:
     def __init__(self):
@@ -17,7 +18,9 @@ class CumbiFire:
         self.colorbala =(225,0,0)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
-        self.balas_totales = 3
+        #self.balas_totales = 3
+        self.aliens = pygame.sprite.Group()
+        self._create_fleet()
 
     def corre_juego(self):
         while True:
@@ -42,6 +45,7 @@ class CumbiFire:
             self.screen.fill(self.color)
             self.nave.corre()
             self.bullets.update()
+
             for bullet in self.bullets.copy():
                 if bullet.rect.bottom <= 0:
                     self.bullets.remove(bullet) 
@@ -49,6 +53,8 @@ class CumbiFire:
 
             for bullet in self.bullets.sprites():
                 bullet.draw_bullet()
+
+            self.aliens.draw(self.screen)   
                 
 
             pygame.display.flip() 
@@ -57,7 +63,11 @@ class CumbiFire:
     def _fire_bullet(self):
         
         new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)     
+        self.bullets.add(new_bullet) 
+
+    def  _create_fleet(self): 
+        alien = Alien(self)  
+        self.aliens.add(alien)   
             
     
     '''def _fire_bullet(self): # se limita el numero de balas
