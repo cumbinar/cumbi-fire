@@ -11,7 +11,7 @@ class CumbiFire:
         self.screen_width = self.screen.get_rect().width
         self.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Cumbi Fire")
-        self.color = (255,200,0)
+        self.color = (220,220,220)
         self.velocidad = 0.5
         self.anchobala = 6
         self.altobala = 16
