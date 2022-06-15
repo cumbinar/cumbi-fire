@@ -7,7 +7,8 @@ from alien import Alien
 class CumbiFire:
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((800, 500))
+        self.ancho = 800
+        self.screen = pygame.display.set_mode((self.ancho, 500))
         self.screen_width = self.screen.get_rect().width
         self.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Cumbi Fire")
@@ -67,7 +68,16 @@ class CumbiFire:
 
     def  _create_fleet(self): 
         alien = Alien(self)  
-        self.aliens.add(alien)   
+        alien_width = alien.rect.width
+        availableSpace = self.ancho - (2*alien_width)
+        numerodeAliens = availableSpace // (2*alien_width)
+
+        for numeroAlien in range(numerodeAliens):
+            alien = Alien(self)
+            alien.x = alien_width + 2 * alien_width * numerodeAlien
+            alien.rect.x = alien.x
+            self.aliens.add(alien)
+
             
     
     '''def _fire_bullet(self): # se limita el numero de balas
