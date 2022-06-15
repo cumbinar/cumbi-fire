@@ -74,7 +74,7 @@ class CumbiFire:
 
         for numeroAlien in range(numerodeAliens):
             alien = Alien(self)
-            alien.x = alien_width + 2 * alien_width * numerodeAlien
+            alien.x = alien_width + 2 * alien_width * numeroAlien
             alien.rect.x = alien.x
             self.aliens.add(alien)
 
