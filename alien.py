@@ -15,4 +15,8 @@ class Alien(Sprite):
 
         self.x = float(self.rect.x)
         self.velocidad_Alien = a_game.velocidad_Alien
+
+    def update(self):
+        self.x += self.velocidad_Alien
+        self.rect.x = self.x    
         
