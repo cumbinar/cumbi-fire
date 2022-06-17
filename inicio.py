@@ -23,6 +23,8 @@ class CumbiFire:
         #self.balas_totales = 3
         self.aliens = pygame.sprite.Group()
         self.velocidad_Alien = 1.0
+        self.flota_velocidad = 10
+        self.flota_direccion = 1
         self._create_fleet()
 
     def corre_juego(self):
@@ -91,7 +93,21 @@ class CumbiFire:
 
 
     def update_alien(self):
+        self.checa_bordesFlota()
         self.aliens.update()
+
+    def checa_bordesFlota(self):
+        for alien in self.aliens.sprites():
+            if alien.checa_bordes():
+                self.cambia_direccion()
+                break
+    def cambia_direccion(self):
+        for alien in self.aliens.sprites():
+            alien.rect.y += self.flota_velocidad
+        self.flota_direccion *= - 1    
+
+
+
 
 
             
