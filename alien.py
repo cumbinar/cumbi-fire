@@ -14,4 +14,5 @@ class Alien(Sprite):
         self.rect.y = self.rect.height
 
         self.x = float(self.rect.x)
+        self.velocidad_Alien = a_game.velocidad_Alien
         
