@@ -44,10 +44,10 @@ class CumbiFire:
                         self.nave.mover_izquierda = False
 
             self.nave.mover()            
-
             self.screen.fill(self.color)
             self.nave.corre()
             self.bullets.update()
+            self.update_alien()
 
             for bullet in self.bullets.copy():
                 if bullet.rect.bottom <= 0:
@@ -88,6 +88,11 @@ class CumbiFire:
         alien.rect.x = alien.x
         alien.rect.y = alien.rect.height + 2 * alien.rect.height * fila
         self.aliens.add(alien)
+
+
+    def update_alien(self):
+        self.aliens.update()
+
 
             
     
