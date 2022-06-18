@@ -91,11 +91,6 @@ class CumbiFire:
         alien.rect.y = alien.rect.height + 2 * alien.rect.height * fila
         self.aliens.add(alien)
 
-
-    def update_alien(self):
-        self.checa_bordesFlota()
-        self.aliens.update()
-
     def checa_bordesFlota(self):
         for alien in self.aliens.sprites():
             if alien.checa_bordes():
@@ -106,7 +101,12 @@ class CumbiFire:
             alien.rect.y += self.flota_velocidad
         self.flota_direccion *= - 1    
 
-
+    def update_alien(self):
+        self.checa_bordesFlota()
+        self.aliens.update()
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
 
 
 
