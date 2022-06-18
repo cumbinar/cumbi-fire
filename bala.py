@@ -13,7 +13,10 @@ class Bullet(Sprite):
 
     def update(self):
         self.y -= self.juego.velocidad 
-        self.rect.y = self.y   
+        self.rect.y = self.y  
+        self.bullets = self.juego.bullets
+        self.aliens = self.juego.aliens 
+        choque = pygame.sprite.groupcollide(self.bullets,self.aliens, True, True)
 
     def  draw_bullet(self):
         pygame.draw.rect(self.screen, self.color, self.rect) 
