@@ -10,6 +10,8 @@ class Bullet(Sprite):
         self.rect.midtop = a_game.nave.rect.midtop
         self.juego = a_game
         self.y = float(self.rect.y)
+        self.sonido = pygame.mixer.Sound("imagenes/clap.wav")
+        self.sonido.play()
 
     def update(self):
         self.y -= self.juego.velocidad 
