@@ -27,6 +27,7 @@ class CumbiFire:
         self.flota_direccion = 1
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.5)
         self._create_fleet()
 
     def corre_juego(self):
