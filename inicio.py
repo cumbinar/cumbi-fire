@@ -72,6 +72,7 @@ class CumbiFire:
         
         new_bullet = Bullet(self)
         self.bullets.add(new_bullet) 
+       
 
     def  _create_fleet(self): 
         alien = Alien(self)  
