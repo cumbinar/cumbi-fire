@@ -3,6 +3,8 @@ import sys
 from nave import Nave
 from bala import Bullet
 from alien import Alien
+from estadisticas import Estadisticas
+from time import sleep
 
 class CumbiFire:
     def __init__(self):
@@ -25,6 +27,7 @@ class CumbiFire:
         self.velocidad_Alien = 0.4
         self.flota_velocidad = 8
         self.flota_direccion = 1
+        self.naves_restantes = 3 #tres vidas
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.5)
@@ -111,6 +114,8 @@ class CumbiFire:
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
+        if pygame.sprite.spritecollideany(self.nave, self.aliens):
+            print("CCCCCCC")    
 
 
 
