@@ -20,6 +20,8 @@ class CumbiFire:
         self.anchobala = 6
         self.altobala = 16
         self.colorbala =(225,0,0)
+        self.naves_restantes = 3  # tres vidas
+        self.estadisticas = Estadisticas(self)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
         #self.balas_totales = 3
@@ -27,7 +29,6 @@ class CumbiFire:
         self.velocidad_Alien = 0.4
         self.flota_velocidad = 8
         self.flota_direccion = 1
-        self.naves_restantes = 3 #tres vidas
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.5)
@@ -115,7 +116,19 @@ class CumbiFire:
             self.bullets.empty()
             self._create_fleet()
         if pygame.sprite.spritecollideany(self.nave, self.aliens):
-            print("CCCCCCC")    
+            print("CCCCCCC")  
+
+    def nave_colisionada(self):
+        self.naves_restantes -= 1   
+          
+        self.aliens.empty()  
+        self.bullets.empty()  
+
+        self._create_fleet()
+        self.nave.centrar_nave()
+
+        sleep(0.5)
+
 
 
 
