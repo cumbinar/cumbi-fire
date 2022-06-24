@@ -19,3 +19,7 @@ class Nave:
 
     def corre(self): 
         self.screen.blit(self.image,self.rect) 
+
+    def centrar_nave(self):
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x) 
