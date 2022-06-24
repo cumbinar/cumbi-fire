@@ -116,7 +116,7 @@ class CumbiFire:
             self.bullets.empty()
             self._create_fleet()
         if pygame.sprite.spritecollideany(self.nave, self.aliens):
-            print("CCCCCCC")  
+           print("fin")
 
     def nave_colisionada(self):
         self.naves_restantes -= 1   
@@ -127,7 +127,7 @@ class CumbiFire:
         self._create_fleet()
         self.nave.centrar_nave()
 
-        sleep(0.5)
+        sleep(0.5) #pausa 0.5 segundos
 
 
 
