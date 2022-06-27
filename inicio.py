@@ -29,6 +29,8 @@ class CumbiFire:
         self.velocidad_Alien = 0.4
         self.flota_velocidad = 8
         self.flota_direccion = 1
+        self.juego_activado = True
+
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.5)
@@ -52,19 +54,20 @@ class CumbiFire:
                     if event.key == pygame.K_LEFT:
                         self.nave.mover_izquierda = False
 
-            self.nave.mover()            
-            self.screen.fill(self.color)
-            self.nave.corre()
-            self.bullets.update()
-            self.update_alien()
+            if self.juego_activado:
+                self.nave.mover()            
+                self.screen.fill(self.color)
+                self.nave.corre()
+                self.bullets.update()
+                self.update_alien()
 
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet) 
-                    #print(len(self.bullets))
+                for bullet in self.bullets.copy():
+                    if bullet.rect.bottom <= 0:
+                        self.bullets.remove(bullet) 
+                        #print(len(self.bullets))
 
-            for bullet in self.bullets.sprites():
-                bullet.draw_bullet()
+                for bullet in self.bullets.sprites():
+                    bullet.draw_bullet()
 
             self.aliens.draw(self.screen)   
                 
@@ -120,15 +123,20 @@ class CumbiFire:
            self.nave_colisionada()
 
     def nave_colisionada(self):
-        self.naves_restantes -= 1   
-          
-        self.aliens.empty()  
-        self.bullets.empty()  
+        if self.naves_restantes > 0:
 
-        self._create_fleet()
-        self.nave.centrar_nave()
+            self.naves_restantes -= 1   
+            
+            self.aliens.empty()  
+            self.bullets.empty()  
 
-        sleep(1) #pausa 1 segundo para reiniciar
+            self._create_fleet()
+            self.nave.centrar_nave()
+
+            sleep(1) #pausa 1 segundo para reiniciar
+
+        else:
+            self.juego_activado = False    
 
 
 
