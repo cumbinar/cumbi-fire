@@ -26,7 +26,7 @@ class CumbiFire:
         self.bullets = pygame.sprite.Group()
         self.balas_totales = 500
         self.aliens = pygame.sprite.Group()
-        self.velocidad_Alien = 0.4
+        self.velocidad_Alien = 0.8
         self.flota_velocidad = 20
         self.flota_direccion = 1
         self.juego_activado = True
