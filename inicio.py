@@ -24,7 +24,7 @@ class CumbiFire:
         self.estadisticas = Estadisticas(self)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
-        #self.balas_totales = 3
+        self.balas_totales = 100
         self.aliens = pygame.sprite.Group()
         self.velocidad_Alien = 0.4
         self.flota_velocidad = 8
@@ -116,7 +116,8 @@ class CumbiFire:
             self.bullets.empty()
             self._create_fleet()
         if pygame.sprite.spritecollideany(self.nave, self.aliens):
-           print("fin")
+           #print("fin")
+           self.nave_colisionada()
 
     def nave_colisionada(self):
         self.naves_restantes -= 1   
@@ -127,7 +128,7 @@ class CumbiFire:
         self._create_fleet()
         self.nave.centrar_nave()
 
-        sleep(0.5) #pausa 0.5 segundos
+        sleep(1) #pausa 1 segundo para reiniciar
 
 
 
