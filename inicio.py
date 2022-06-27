@@ -16,7 +16,7 @@ class CumbiFire:
         self.screen_height = self.screen.get_rect().height
         pygame.display.set_caption("Cumbi Fire")
         self.color = (220,220,220)
-        self.velocidad = 0.5
+        self.velocidad = 2.5
         self.anchobala = 6
         self.altobala = 16
         self.colorbala =(225,0,0)
@@ -24,7 +24,7 @@ class CumbiFire:
         self.estadisticas = Estadisticas(self)
         self.nave = Nave(self)
         self.bullets = pygame.sprite.Group()
-        self.balas_totales = 100
+        self.balas_totales = 500
         self.aliens = pygame.sprite.Group()
         self.velocidad_Alien = 0.4
         self.flota_velocidad = 20
