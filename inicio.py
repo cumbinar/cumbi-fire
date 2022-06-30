@@ -17,7 +17,7 @@ class CumbiFire:
         pygame.display.set_caption("Cumbi Fire")
         self.color = (220,220,220)
         self.velocidad = 2.5
-        self.anchobala = 6
+        self.anchobala = 7
         self.altobala = 16
         self.colorbala =(225,0,0)
         self.naves_restantes = 3  # tres vidas
