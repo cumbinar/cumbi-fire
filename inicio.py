@@ -29,7 +29,7 @@ class CumbiFire:
         self.velocidad_Alien = 0.8
         self.flota_velocidad = 20
         self.flota_direccion = 1
-        self.juego_activado = True
+        self.juego_activado = False
 
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
