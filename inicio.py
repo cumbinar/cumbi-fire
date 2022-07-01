@@ -5,6 +5,7 @@ from bala import Bullet
 from alien import Alien
 from estadisticas import Estadisticas
 from time import sleep
+from Boton import Boton
 
 class CumbiFire:
     def __init__(self):
@@ -30,6 +31,7 @@ class CumbiFire:
         self.flota_velocidad = 20
         self.flota_direccion = 1
         self.juego_activado = False
+        self.play_boton = Boton(self, "Play")
 
         pygame.mixer.music.load("imagenes/guaguanco.wav")
         pygame.mixer.music.play(-1)
@@ -71,6 +73,8 @@ class CumbiFire:
 
             self.aliens.draw(self.screen)   
                 
+            if not self.juego_activado:
+                self.play_boton.dibujaBoton()
 
             pygame.display.flip() 
 
