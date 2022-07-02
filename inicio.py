@@ -55,6 +55,8 @@ class CumbiFire:
                         self.nave.mover_derecha = False
                     if event.key == pygame.K_LEFT:
                         self.nave.mover_izquierda = False
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    mousePos = pygame.mouse.get_pos()      
 
             if self.juego_activado:
                 self.nave.mover()            
