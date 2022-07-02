@@ -56,7 +56,8 @@ class CumbiFire:
                     if event.key == pygame.K_LEFT:
                         self.nave.mover_izquierda = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    mousePos = pygame.mouse.get_pos()      
+                    mousePos = pygame.mouse.get_pos() 
+                    self.checaBoton(mousePos)     
 
             if self.juego_activado:
                 self.nave.mover()            
@@ -142,7 +143,9 @@ class CumbiFire:
             sleep(1) #pausa 1 segundo para reiniciar
 
         else:
-            self.juego_activado = False    
+            self.juego_activado = False 
+
+    def checaBoton(self. mousePos):          
 
 
 
