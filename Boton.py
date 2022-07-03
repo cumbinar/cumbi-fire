@@ -9,7 +9,7 @@ class Boton:
         self.color = (255, 0, 0)
         self.textoColor = (255, 255, 255)
 
-        self.font = pygame.font.SysFont(None,48)
+        self.font = pygame.font.SysFont(None, 48)
 
         self.rect = pygame.Rect(0, 0, self.width, self.height)
         self.rect.center = self.screen_rect.center
@@ -17,7 +17,7 @@ class Boton:
         self.prepara_texto(texto)
 
 
-    def prepara_texto(self, texto) :
+    def prepara_texto(self, texto):
         self.texto_image = self.font.render(texto, True, self.textoColor, self.color) 
         self.texto_image_rect =  self.texto_image.get_rect()
         self.texto_image_rect.center = self.rect.center 
