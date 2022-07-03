@@ -56,7 +56,7 @@ class CumbiFire:
                     if event.key == pygame.K_LEFT:
                         self.nave.mover_izquierda = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    mousePos = pygame.mouse.get_pos() 
+                    mousePos = pygame.mouse.get_pos()
                     self.checaBoton(mousePos)     
 
             if self.juego_activado:
@@ -73,8 +73,7 @@ class CumbiFire:
 
                 for bullet in self.bullets.sprites():
                     bullet.draw_bullet()
-
-            self.aliens.draw(self.screen)   
+                self.aliens.draw(self.screen)   
                 
             if not self.juego_activado:
                 self.play_boton.dibujaBoton()
@@ -145,7 +144,18 @@ class CumbiFire:
         else:
             self.juego_activado = False 
 
-    def checaBoton(self. mousePos):          
+    def checaBoton(self, mousePos):
+        #if self.play_boton.rect.collindepoint(mousePos):
+        self.estadisticas.reinicia()
+        self.juego_activado = True
+        
+        self.aliens.empty()
+        self.bullets.empty()
+        
+        self._create_fleet()
+        self.nave.centrar_nave()
+        self.naves_restantes = 3
+        
 
 
 
