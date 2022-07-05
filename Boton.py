@@ -5,7 +5,7 @@ class Boton:
     def __init__(self, a_game, texto):
         self.screen = a_game.screen
         self.screen_rect = self.screen.get_rect()
-        self.width, self.height = 200, 50
+        self.width, self.height = 300, 50
         self.color = (255, 0, 0)
         self.textoColor = (255, 255, 255)
 
